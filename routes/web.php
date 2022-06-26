@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\MyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',[MyController::class,'index']);
+Route::post('/store',[MyController::class,'store'])->name('store');
+Route::post('ajax',[AjaxController::class,'index']);
+Route::post('delivery',[AjaxController::class,'Delivery']);
